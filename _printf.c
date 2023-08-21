@@ -9,12 +9,12 @@
 
 int _printf(const char *format, ...)
 {
-	int printedchar = 0, j;
+	int printedchar = 0, j, i;
 	char *charr;
 	va_list ap;
 
 	va_start(ap, format);
-	for (int i = 0; *format && format[i] != '\0'; i++)
+	for (i = 0; *format && format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -24,6 +24,7 @@ int _printf(const char *format, ...)
 				charr = va_arg(ap, char *);
 				write(1, &charr, 1);
 				printedchar++;
+				i++;
 			}
 			if (format[i] == 's')
 			{
@@ -33,8 +34,8 @@ int _printf(const char *format, ...)
 					write(1, &charr[j], 1);
 					printedchar++;
 				}
+			i++;
 			}
-		i++;
 		}
 		write(1, &format[i], 1);
 		printedchar++;
