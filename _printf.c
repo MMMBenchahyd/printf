@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	int printedchar = 0;
+	int printedchar = 0, j;
 	char *charr;
 	va_list ap;
 
@@ -22,12 +22,13 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 			{
 				charr = va_arg(ap, char *);
+				write(1, &charr[0], 1);
 				printedchar++;
 			}
 			if (format[i] == 's')
 			{
 				charr = va_arg(ap, char *);
-				for (int j = 0; charr[j] != '\0'; j)
+				for (j = 0; charr[j] != '\0'; j)
 				{
 					write(1, &charr[j], 1);
 					printedchar++;
