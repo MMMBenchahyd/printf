@@ -22,19 +22,19 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 			{
 				charr = va_arg(ap, char *);
-				write(1, &charr[0], 1);
+				write(1, &charr, 1);
 				printedchar++;
 			}
 			if (format[i] == 's')
 			{
 				charr = va_arg(ap, char *);
-				for (j = 0; charr[j] != '\0'; j)
+				for (j = 0; charr[j] != '\0'; j++)
 				{
 					write(1, &charr[j], 1);
 					printedchar++;
 				}
-				i++;
 			}
+		i++;
 		}
 		write(1, &format[i], 1);
 		printedchar++;
