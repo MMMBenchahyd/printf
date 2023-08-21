@@ -9,7 +9,7 @@
 
     int _printf(const char *format, ...)
 {
-    int printedchar =0;
+    int printedchar = 0;
     char *charr;
     va_list ap;
 
