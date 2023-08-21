@@ -18,16 +18,16 @@ int _printf(const char *format, ...)
         if (format[i] == '%')
         {
             i++;
-            if (format[i] == 'c')
-            {
-                charr = va_arg(ap, char *);
-                for(int j = 0; charr[j] != '\0'; j++)
+                if (format[i] == 'c')
                 {
-                    write(1, &charr[j], 1);
-                    printedchar++;
-                }
-                i++;
-            }  
+                    charr = va_arg(ap, char *);
+                        for (int j = 0; charr[j] != '\0'; j++)
+                        {
+                            write(1, &charr[j], 1);
+                            printedchar++;
+                        }
+                    i++;
+                }  
         }
         write(1, &format[i], 1);
         printedchar++;
