@@ -6,7 +6,6 @@
  * Return: Printed chars.
  */
 
-
 int _printf(const char *format, ...)
 {
 	int printedchar = 0, j, i;
@@ -18,6 +17,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			i++;
+			if (format[i] != 'c' && format[i] != 's' && format[i]!= '%')
+			{
+				write(1, "%", 1);
+				write(1, &format[i], 1);
+				printedchar++;
+				i++;
+			}
 			if (format[i] == 'c')
 			{
 				charr = va_arg(ap, char *);
