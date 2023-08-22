@@ -25,14 +25,15 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] != 'c' && format[i] != 's' && format[i] != '%' &&
-				format[i] != 'd' && format[i] != 'i')
-			{
-				write(2, "%", 1);
-				write(1, &format[i], 1);
-				printedchar++;
-				i++;
-			}
+	/*		if (format[i] != 'c' && format[i] != 's' && format[i] != '%' &&
+	*			format[i] != 'd' && format[i] != 'i')
+	*		{
+	*			write(2, "%", 1);
+	*			write(1, &format[i], 1);
+	*			printedchar++;
+	*			i++;
+	*		}
+	*/
 			if (format[i] == 'c')
 			{
 				charr = va_arg(ap, char *);
