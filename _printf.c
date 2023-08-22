@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 {
 	int printedchar = 0, j, i;
 	char *charr;
+	int numbr;
 	va_list ap;
 
 	va_start(ap, format);
@@ -24,9 +25,9 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] != 'c' && format[i] != 's' && format[i] != '%')
+			if (format[i] != 'c' && format[i] != 's' && format[i] != '%' && format[i] != 'd' && format[i] != 'i')
 			{
-				write(1, "%", 1);
+				write(2, "%", 1);
 				write(1, &format[i], 1);
 				printedchar++;
 				i++;
@@ -45,6 +46,14 @@ int _printf(const char *format, ...)
 				{
 					write(1, &charr[j], 1);
 					printedchar++;
+				}
+			i++;
+			}
+			if (format[i] == 'd' || format[i] == 'i')
+			{
+				numbr = va_arg(ap, int);
+				{
+					printedchar += printnumbr(numbr);
 				}
 			i++;
 			}
