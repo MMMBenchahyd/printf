@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] != 'c' && format[i] != 's' && format[i] != '%' && 
+			if (format[i] != 'c' && format[i] != 's' && format[i] != '%' &&
 				format[i] != 'd' && format[i] != 'i')
 			{
 				write(2, "%", 1);
