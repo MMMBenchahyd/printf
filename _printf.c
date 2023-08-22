@@ -31,12 +31,14 @@ int _printf(const char *format, ...)
 				write(2, "%", 1);
 				write(1, &format[i], 1);
 				printedchar++;
+				i++;
 			}
 			if (format[i] == 'c')
 			{
 				charr = va_arg(ap, char *);
 				write(1, &charr, 1);
 				printedchar++;
+				i++;
 			}
 			if (format[i] == 's')
 			{
@@ -46,6 +48,7 @@ int _printf(const char *format, ...)
 					write(1, &charr[j], 1);
 					printedchar++;
 				}
+			i++;
 			}
 			if (format[i] == 'd' || format[i] == 'i')
 			{
@@ -53,8 +56,8 @@ int _printf(const char *format, ...)
 				{
 					printedchar += printnumbr(numbr);
 				}
-			}
 			i++;
+			}
 		}
 		write(1, &format[i], 1);
 		printedchar++;
