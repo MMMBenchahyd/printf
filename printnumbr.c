@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  *printnumbr - print number
+  *printnumbr - print n umber
   * @num : given num
   *Return: Number of chars printed
  */
